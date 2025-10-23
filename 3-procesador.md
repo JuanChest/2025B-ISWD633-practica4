@@ -10,6 +10,11 @@ Asignar núcleos de CPU específicos:
 ```
 
 **¿Como saber el numero de procesadores virtuales que tiene una máquina?**
+
+En windows la manera más sencilla de verificar el número de procesadores virtuales, lógicos o hilos, es ingresando al administrador de tareas y en la pestaña de Rendimiento sse puede ver la utilización de los recursos de la computadora, entre ellos el del procesador que se muestra detalles como justamente el número de procesadores virtuales.
+
+<img width="281" height="206" alt="image" src="https://github.com/user-attachments/assets/8e05a5f3-2cea-4f6c-ae2a-38b7603cf2fb" />
+
 ## COMPLETAR
 
 ## Ejemplos
