@@ -82,6 +82,8 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 # COMPLETAR CON LA RESPUESTA
 
 **¿Qué es una imagen huérfana?**
+
+Es una imagen que ya no está etiquetada ni referenciada por ningún contenedor, dejándola "colgando" sin una conexión directa a un árbol de imágenes. Estas imágenes suelen aparecer cuando se crea una nueva versión de una imagen, haciendo que la versión anterior quede sin etiqueta y ocupe espacio en el disco. 
 # COMPLETAR CON LA RESPUESTA
 
 ### Identificar imágenes huérfanas
