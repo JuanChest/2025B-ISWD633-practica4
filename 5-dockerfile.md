@@ -53,17 +53,31 @@ docker build -t <nombre imagen>:<tag> .
 ### Ejecutar el archivo Dockerfile y construir una imagen en la versión 1.0
 No olvides verificar en qué directorio se encuentra el archivo Dockerfile
 ```
-
+docker build -t miweb:1.0 .
 ```
 
 **¿Cuántos pasos se han ejecutado?**
+
+Se ejecutaron 6 pasos de 8, esto debido a un error al tratar de actualizar el sistema de centos 7. Al parecer esta distribución de centos llego al final de su vida útil el 30 de Junio de 2024. Por lo que no se puede actualizar con el comando ```yum -y update```. Una solución es realizar la actualización en base a otro repositorio, o también utilizar otra imagen como: rockyLinux:8.
+
+![alt text](EjecuciónDockerFile.png)
+
+Entonces con rockyLinux:8 se ejecutaron 9 tareas en donde al final se levanta el servicio de apache.
 # RESPONDER 
 
+```
+docker run -d --name miweb1 -p 80:80 miweb:1.0
+```
+
 ### Inspeccionar la imagen creada
+![alt text](Inspección.png)
+
+![alt text](miWeb1.png)
 # COMPLETAR CON UNA CAPTURA
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
+Creando la segunda versión de la imagen los pasos se mantienen igual, aunque la creación fue mucho más rápido, debido a que la actualización del sistema operativo ya estaba hecha.
 
 ## Mecanismo de caché
 Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso de construcción y evitar la repetición de pasos que no han cambiado. Cada instrucción en un Dockerfile crea una capa en la imagen final. Docker intenta reutilizar las capas de una construcción anterior si no han cambiado, lo que reduce significativamente el tiempo de construcción.
@@ -75,10 +89,14 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### Crear un contenedor a partir de las imagen creada, mapear todos los puertos
 ```
+docker run -d --name miweb2 -P miweb:2.0
 
 ```
+![alt text](miWeb2.png)
 
 ### ¿Con que puerto host se está realizando el mapeo?
+
+Se está realizando el mapeo con el puerto: ```32768```.
 # COMPLETAR CON LA RESPUESTA
 
 **¿Qué es una imagen huérfana?**

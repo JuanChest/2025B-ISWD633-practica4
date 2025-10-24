@@ -1,4 +1,4 @@
-FROM centos:7
+FROM rockylinux:8
 RUN yum -y update
 RUN yum -y install httpd
 COPY ./web /var/www/html
